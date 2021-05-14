@@ -12,7 +12,7 @@
  * @param res {object} Express Response Object
  * @param next {function} Express middleware next()
  */
-module.exports = (err, req, res, next) => {
+export default (err, req, res, next) => {
   let error = { error: err };
   res.status(500).json(error).end();
 };

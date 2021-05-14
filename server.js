@@ -7,6 +7,8 @@ import notFoundHandler from './middleware/404.js';
 import errorHandler from './middleware/500.js';
 import logger from './middleware/logger.js';
 
+import instagramRoutes from './api/instagramRoutes.js';
+
 const app = express();
 
 app.use(logger);
@@ -14,7 +16,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-module.exports = {
+app.use(instagramRoutes);
+
+app.use('*', notFoundHandler);
+app.use(errorHandler);
+
+export default {
   app,
   start: (port) => {
     app.listen(port, console.log(`Listening on Port: ${port}`));

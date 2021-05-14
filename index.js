@@ -1,29 +1,11 @@
 'use strict';
 
-import express from 'express';
-import cors from 'cors';
 import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import Pusher from 'pusher';
-
-import dbModel from './dbModel.js';
-
-// app config
 dotenv.config();
-const app = express();
-const port = process.env.PORT || 8080;
+import mongoose from 'mongoose';
 
-const pusher = new Pusher({
-  appId: process.env.PUSHER_APPID,
-  key: process.env.PUSHER_KEY,
-  secret: process.env.PUSHER_SECRET,
-  cluster: 'us2',
-  useTLS: true,
-});
-
-// middlewares
-app.use(express.json());
-app.use(cors());
+import server from './server.js';
+import pusher from './pusher.js';
 
 // DB config
 mongoose.connect(process.env.MONGODB_URI, {
@@ -56,30 +38,4 @@ mongoose.connection.once('open', () => {
   });
 });
 
-// api routes
-app.get('/', (req, res) => res.status(200).send('hello world'));
-
-app.post('/upload', (req, res) => {
-  const body = req.body;
-
-  dbModel.create(body, (err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(201).send(data);
-    }
-  });
-});
-
-app.get('/sync', (req, res) => {
-  dbModel.find((err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(200).send(data);
-    }
-  });
-});
-
-// listen
-app.listen(port, () => console.log(`listening on port: ${port}`));
+server.start(process.env.PORT);
