@@ -8,11 +8,7 @@
 
 ## Overview
 
-## User Stories
-
 ## Architecture
-
-## Page Wire Frames
 
 ## Dependencies and Tools
 
