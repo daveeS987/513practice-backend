@@ -1,0 +1,27 @@
+{
+  "name": "instagram-clone-backend-mern",
+  "version": "1.0.0",
+  "description": "backend for instagram clone frontend",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daveeS987/513practice-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daveeS987/513practice-backend/issues"
+  },
+  "homepage": "https://github.com/daveeS987/513practice-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.9",
+    "pusher": "^5.0.0"
+  }
+}
