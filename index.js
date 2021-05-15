@@ -14,6 +14,7 @@ mongoose.connect(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
 });
 
+/*
 mongoose.connection.once('open', () => {
   console.log('DB Connected');
 
@@ -24,18 +25,16 @@ mongoose.connection.once('open', () => {
     console.log('End of Change');
 
     if (change.operationType === 'insert') {
-      console.log('Triggering Pusher ***Img Upload');
-
       const postDetails = change.fullDocument;
+      console.log('POSTDETAILS:', postDetails);
       pusher.trigger('posts', 'inserted', {
-        user: postDetails.user,
-        caption: postDetails.caption,
-        image: postDetails.image,
+        message: 'pusher got triggered',
       });
     } else {
       console.log('Unknown trigger from pusher');
     }
   });
 });
+*/
 
 server.start(process.env.PORT);
