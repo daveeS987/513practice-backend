@@ -62,6 +62,8 @@ async function handlePost(request, response, next) {
 
 async function handlePut(request, response, next) {
   try {
+    // console.log('request.params:', request.params);
+    // console.log('request.body', request.body);
     let result = await request.model.update(request.params.id, request.body);
     response.status(200).json(result);
   } catch (e) {
