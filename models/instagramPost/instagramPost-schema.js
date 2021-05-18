@@ -1,6 +1,6 @@
 'use strict';
 
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 require('mongoose-schema-jsonschema')(mongoose);
 
 const instance = mongoose.Schema({
@@ -10,4 +10,4 @@ const instance = mongoose.Schema({
   comments: [],
 });
 
-export default mongoose.model('instagramPost', instance);
+module.exports = mongoose.model('instagramPost', instance);

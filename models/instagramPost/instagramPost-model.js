@@ -1,7 +1,7 @@
 'use strict';
 
-import Model from '../mongo.js';
-import schema from './instagramPost-schema.js';
+const Model = require('../mongo.js');
+const schema = require('./instagramPost-schema.js');
 
 class InstagramPosts extends Model {
   constructor() {
@@ -9,4 +9,4 @@ class InstagramPosts extends Model {
   }
 }
 
-export default InstagramPosts;
+module.exports = InstagramPosts;

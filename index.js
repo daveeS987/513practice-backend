@@ -1,10 +1,9 @@
 'use strict';
 
-import dotenv from 'dotenv';
-dotenv.config();
-import mongoose from 'mongoose';
+require('dotenv').config();
+const mongoose = require('mongoose');
 
-import server from './server.js';
+const server = require('./server.js');
 // import pusher from './pusher.js';
 
 // DB config
