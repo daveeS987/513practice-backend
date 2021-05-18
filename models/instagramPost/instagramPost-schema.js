@@ -1,6 +1,7 @@
 'use strict';
 
 import mongoose from 'mongoose';
+require('mongoose-schema-jsonschema')(mongoose);
 
 const instance = mongoose.Schema({
   caption: String,
@@ -9,4 +10,4 @@ const instance = mongoose.Schema({
   comments: [],
 });
 
-export default mongoose.model('posts', instance);
+export default mongoose.model('instagramPost', instance);

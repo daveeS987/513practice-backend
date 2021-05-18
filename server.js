@@ -7,7 +7,7 @@ import notFoundHandler from './middleware/404.js';
 import errorHandler from './middleware/500.js';
 import logger from './middleware/logger.js';
 
-import instagramRoutes from './api/instagramRoutes.js';
+import instagramRoutes from './api/v1.js';
 
 const app = express();
 

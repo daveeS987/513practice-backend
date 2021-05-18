@@ -5,7 +5,7 @@ dotenv.config();
 import mongoose from 'mongoose';
 
 import server from './server.js';
-import pusher from './pusher.js';
+// import pusher from './pusher.js';
 
 // DB config
 mongoose.connect(process.env.MONGODB_URI, {
